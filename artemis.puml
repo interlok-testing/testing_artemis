@@ -1,0 +1,21 @@
+```plantuml
+@startuml
+storage artemis{
+usecase Queue1[
+Queue1
+]
+usecase Queue2[
+Queue2
+]
+usecase Topic1[
+Topic1
+]
+usecase Topic2[
+Topic2
+]
+}
+Queue1 -> Queue2
+Queue2 -> Topic1
+Topic1 -> Topic2
+@enduml
+```
