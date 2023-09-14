@@ -1,5 +1,8 @@
 # Artemis Testing
 
+[![license](https://img.shields.io/github/license/interlok-testing/testing_artemis.svg)](https://github.com/interlok-testing/testing_artemis/blob/develop/LICENSE)
+[![Actions Status](https://github.com/interlok-testing/testing_artemis/actions/workflows/gradle-build.yml/badge.svg)](https://github.com/interlok-testing/testing_artemis/actions/workflows/gradle-build.yml)
+
 Project tests interlok-artemis features
 
 ## What it does
