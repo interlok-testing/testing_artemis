@@ -11,7 +11,16 @@ This project contains a single instance of Interlok that launches an Apache Arte
 A second workflow will consume the message and move to a second queue using a JMS 2.0 asynchronous producer.
 A third workflow will again consume the message and send to a topic, where a final workflow is subscribed to that topic.
 
-![artemis diagram](/artemis.png "artemis diagram")
+
+```mermaid
+graph LR
+  subgraph Artemis
+    direction LR
+    Queue1(Queue1) --> Queue2(Queue2)
+    Queue2(Queue2) --> Topic1(Topic1)
+    Topic1(Topic1) --> Topic2(Topic2)
+  end
+```
  
 ## Getting started
 
