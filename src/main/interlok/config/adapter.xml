@@ -191,9 +191,41 @@
             <unique-id>mad-ritchie-InFlight</unique-id>
           </in-flight-workflow-interceptor>
         </standard-workflow>
+        <standard-workflow>
+          <consumer class="jms-consumer">
+            <unique-id>fervent-yonath1</unique-id>
+            <acknowledge-mode>CLIENT_ACKNOWLEDGE</acknowledge-mode>
+            <message-translator class="auto-convert-message-translator">
+              <jms-output-type>Text</jms-output-type>
+            </message-translator>
+            <endpoint>jms:topic:Sample.T2</endpoint>
+          </consumer>
+          <service-collection class="service-list">
+            <unique-id>gloomy-roentgen1</unique-id>
+            <services/>
+          </service-collection>
+          <producer class="fs-producer">
+            <create-dirs>true</create-dirs>
+            <base-directory-url>file://./messages</base-directory-url>
+          </producer>
+          <produce-exception-handler class="null-produce-exception-handler"/>
+          <unique-id>thirsty-lichterman1</unique-id>
+          <message-metrics-interceptor>
+            <unique-id>thirsty-lichterman1-MessageMetrics</unique-id>
+            <timeslice-duration>
+              <unit>MINUTES</unit>
+              <interval>5</interval>
+            </timeslice-duration>
+            <timeslice-history-count>12</timeslice-history-count>
+          </message-metrics-interceptor>
+          <in-flight-workflow-interceptor>
+            <unique-id>thirsty-lichterman1-InFlight</unique-id>
+          </in-flight-workflow-interceptor>
+        </standard-workflow>
       </workflow-list>
       <unique-id>infallible-yonath</unique-id>
     </channel>
+
   </channel-list>
   <message-error-digester class="standard-message-error-digester">
     <unique-id>ErrorDigest</unique-id>
