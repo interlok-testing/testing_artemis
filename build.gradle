@@ -21,3 +21,12 @@ dependencies {
   interlokJavadocs group: "com.adaptris", name: "interlok-artemis", version: "$interlokVersion", classifier: "javadoc", changing: true, transitive: false
   testImplementation group: "com.adaptris", name: "interlok-testing-common", version: "$interlokTestingVersion"
 }
+
+
+tasks.register('cleanMessages') {
+  project.delete(file("${buildDir}/distribution/messages"));
+}
+
+tasks.named('functionalTest') {
+  dependsOn('cleanMessages')
+}
