@@ -6,7 +6,6 @@ plugins {
 ext {
   testingCommonGradle = "https://raw.githubusercontent.com/interlok-testing/testing_common/refs/heads/master/common.gradle?timestamp=${new Date().getTime()}"
 //  testingCommonGradle = "../testing_common/common.gradle"
-  interlokTestingVersion = "0.1"
 }
 
 allprojects {
@@ -19,12 +18,11 @@ dependencies {
   interlokRuntime ("com.adaptris:interlok-artemis:$interlokVersion") { changing=true }
 
   interlokJavadocs group: "com.adaptris", name: "interlok-artemis", version: "$interlokVersion", classifier: "javadoc", changing: true, transitive: false
-  testImplementation group: "com.adaptris", name: "interlok-testing-common", version: "$interlokTestingVersion"
 }
 
 
 tasks.register('cleanMessages') {
-  project.delete(file("${buildDir}/distribution/messages"));
+  if (file("${buildDir}/distribution/messages").exists()) project.delete(file("${buildDir}/distribution/messages"));
 }
 
 tasks.named('functionalTest') {
